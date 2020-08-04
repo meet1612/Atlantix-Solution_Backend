@@ -20,6 +20,8 @@ var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
+var image=require('./routes/image_route');
+
 
 var app = express();
 
@@ -66,6 +68,9 @@ app.use('/ordermaintain',ordermaintain);
 
 //feedback
 app.use('/feedback',feedback);
+
+//image
+app.use('/image',image);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
