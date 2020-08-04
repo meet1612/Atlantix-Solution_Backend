@@ -12,6 +12,9 @@ var employee=require('./routes/employee_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
+var personregister =require('./routes/persondetailregister_route');
+var persondetaildelete = require('./routes/persondetailDelete_route');
+var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
 var servicecat=require('./routes/servicecat_route');
@@ -48,6 +51,9 @@ app.use('/person',person);
 
 //Person Detail
 app.use('/persondetail',persondetail);
+app.use('/personregister',personregister);
+app.use('/persondetaildelete',persondetaildelete);
+app.use('/adminlogin',adminlogin);
 
 //Package
 app.use('/package',package);
