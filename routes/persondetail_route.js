@@ -48,7 +48,7 @@ router.put("/:id?", function (req, res, next) {
       }
     });
   } else {
-    persondetail.changepass(req.body, function (err, rows) {
+    persondetail.changepwd(req.body, function (err, rows) {
       if (err) {
         res.json(err);
       } else {
