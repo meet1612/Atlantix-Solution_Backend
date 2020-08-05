@@ -8,10 +8,10 @@ var persondetail={
         return db.query("select * from persondetail_tbl where p_mobile=?",[id],callback);
     },
     PersondetailLoginforAdmin:function(item,callback){  //admin
-        return db.query('select * from persondetail_tbl where p_mobile=? And p_password=? And p_id=1',[item.p_mobile,item.p_password],callback);
+        return db.query('select * from persondetail_tbl where p_mobile=? And p_password=? And p_id=1 and p_status=0',[item.p_mobile,item.p_password],callback);
     },
     PersondetailLoginforUser:function(item,callback){  //user
-        return db.query('select * from persondetail_tbl where p_mobile=? And p_password=? And p_id=2',[item.p_mobile,item.p_password],callback);
+        return db.query('select * from persondetail_tbl where p_mobile=? And p_password=? And p_id=2 and p_status=0',[item.p_mobile,item.p_password],callback);
     },
     PersondetailRegister:function(item,callback){
         var d=new Date();
