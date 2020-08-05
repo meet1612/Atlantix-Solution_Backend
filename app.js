@@ -26,6 +26,7 @@ var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
 var imageser=require('./routes/imageservice_route');
+var sercatjoin=require('./routes/servicecategoryjoin_route');
 
 
 var app = express();
@@ -84,6 +85,9 @@ app.use('/image',image);
 
 //imageservice
 app.use('/imageser',imageser);
+
+//sercatjoin
+app.use('/sercatjoin',sercatjoin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
