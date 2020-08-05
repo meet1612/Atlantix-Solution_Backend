@@ -19,6 +19,9 @@ var image = {
   },
   getImageBySerId:function(id,callback){
     return db.query('select i_name from image_tbl where s_id=? LIMIT 1',[id],callback);
+  },
+  getAllImageBySerId:function(id,callback){
+    return db.query('select * from image_tbl where s_id=?',[id],callback);
   }
 };
 
