@@ -19,11 +19,11 @@ var persondetail={
     },
     PersondetailUpdate:function(id,item,callback){
         var d =new Date();
-        return db.query("update persondetail_tbl set p_name=?,p_address=?,p_pincode=?,p_updatedAt=? where p_status=0 and p_mobile=?",[item.p_name,item.p_address,item.p_pincode,d,id],callback);
+        return db.query("update persondetail_tbl set p_name=?,p_password=?,p_address=?,p_pincode=?,p_updatedAt=? where p_status=0 and p_mobile=?",[item.p_name,item.p_password,item.p_address,item.p_pincode,d,id],callback);
     },
-    changepwd:function(item,callback){
-        return db.query("update persondetail_tbl set p_password=? where p_mobile=?",[item.p_password,item.p_mobile],callback);
-    },
+    // changepwd:function(item,callback){
+    //     return db.query("update persondetail_tbl set p_password=? where p_mobile=?",[item.p_password,item.p_mobile],callback);
+    // },
     deletePersondetail:function(mobile_no,item,callback){
         var d=new Date();
         return db.query("update persondetail_tbl set  p_updatedAt=? ,p_status=1 where p_mobile=?",[d,mobile_no],callback);

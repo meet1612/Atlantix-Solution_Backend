@@ -16,6 +16,9 @@ var image = {
   },
   deleteImage:function(id,callback){
     return db.query("delete from image_tbl where i_id=?",[id],callback);
+  },
+  getImageBySerId:function(id,callback){
+    return db.query('select i_name from image_tbl where s_id=? LIMIT 1',[id],callback);
   }
 };
 
