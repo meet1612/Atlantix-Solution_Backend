@@ -17,6 +17,7 @@ var persondetaildelete = require('./routes/persondetailDelete_route');
 var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
+var packageservice=require('./routes/packageservice_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var deleteservice=require('./routes/serviceDelete_route');
@@ -62,6 +63,8 @@ app.use('/deletepackage',deletepackage);
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
 
+//Package Service
+app.use('/packageservice',packageservice);
 //Service Category
 app.use('/servicecat',servicecat);
 
