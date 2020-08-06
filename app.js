@@ -17,6 +17,7 @@ var persondetaildelete = require('./routes/persondetailDelete_route');
 var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
+var packageservice=require('./routes/packageservice_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var deleteservice=require('./routes/serviceDelete_route');
@@ -24,6 +25,9 @@ var ordermaintain=require('./routes/ordermaintain_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
+var imageser=require('./routes/imageservice_route');
+var getAllImageByServ=require('./routes/getAllImageByService_route');
+var sercatjoin=require('./routes/servicecategoryjoin_route');
 
 
 var app = express();
@@ -62,6 +66,8 @@ app.use('/deletepackage',deletepackage);
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
 
+//Package Service
+app.use('/packageservice',packageservice);
 //Service Category
 app.use('/servicecat',servicecat);
 
@@ -77,6 +83,14 @@ app.use('/feedback',feedback);
 
 //image
 app.use('/image',image);
+
+//imageservice
+app.use('/imageser',imageser);
+
+//allimagebyservice
+app.use('/allimagebyserv',getAllImageByServ);
+//sercatjoin
+app.use('/sercatjoin',sercatjoin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

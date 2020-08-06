@@ -9,6 +9,10 @@ var package={
         return db.query("select * from package_tbl where pk_id=?",[id],callback);
     },
 
+    getPackageServiceById:function(id,callback){
+        return db.query("select ps.*,s.*,pk.* from packageservice_tbl ps,service_tbl s,package_tbl pk where ps.s_id=s.s_id and ps.pk_id=pk.pk_id and ps.pk_id=?",[id],callback);
+    },
+
     addPackage:function(item,callback){
         var d=new Date();
         return db.query("insert into package_tbl values(?,?,?,?,?,?,?,?,?,?)",[item.pk_id,item.pk_name,item.pk_description,item.pk_price,item.pk_discount,item.pk_includedser,item.pk_duration,d,d,item.pk_status],callback);
