@@ -3,7 +3,7 @@ var feedback={
 
     getAllFeedback:function(callback)
     {
-        return db.query("select * from feedback_tbl",callback);
+        return db.query("select f.*,pd.* from feedback_tbl f,persondetail_tbl pd WHERE f.p_mobile=pd.p_mobile",callback);
     },
     addFeedback:function(item,callback)
     {
@@ -13,6 +13,5 @@ var feedback={
     {
         return db.query("delete from feedback_tbl where f_id=?",[id],callback);
     }
-
 };
 module.exports=feedback;
