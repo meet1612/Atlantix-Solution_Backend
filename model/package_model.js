@@ -10,7 +10,7 @@ var package={
     },
 
     getPackageServiceById:function(id,callback){
-        return db.query("select ps.*,s.*,pk.* from packageservice_tbl ps,service_tbl s,package_tbl pk where ps.s_id=s.s_id and ps.pk_id=pk.pk_id and ps.pk_id=?",[id],callback);
+        return db.query("select ps.*,s.*,pk.*,sc.* from servicecategory_tbl sc, packageservice_tbl ps,service_tbl s,package_tbl pk where ps.s_id=s.s_id and ps.pk_id=pk.pk_id and s.sc_id=sc.sc_id and ps.pk_id=?",[id],callback);
     },
 
     addPackage:function(item,callback){
