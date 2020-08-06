@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var employee=require('./routes/employee_route');
+var employeeservice=require('./routes/employeeservice_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
@@ -28,6 +29,7 @@ var image=require('./routes/image_route');
 var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
+const e = require('express');
 
 
 var app = express();
@@ -49,6 +51,8 @@ app.use('/users', usersRouter);
 app.use('/employee',employee);
 app.use('/deleteemployee',deleteemployee);
 
+//Employee Service
+app.use('/employeeservice',employeeservice);
 
 //Person
 app.use('/person',person);
