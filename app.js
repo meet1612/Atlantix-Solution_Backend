@@ -23,6 +23,7 @@ var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
+var serviceCompelete=require('./routes/ordermaintain_serviceComplete_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
@@ -81,6 +82,9 @@ app.use('/deleteservice',deleteservice);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
+app.use('/serviceCompelete',serviceCompelete);
+
+
 
 //feedback
 app.use('/feedback',feedback);
