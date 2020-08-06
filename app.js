@@ -26,6 +26,7 @@ var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
 var imageser=require('./routes/imageservice_route');
+var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
 
 
@@ -86,6 +87,8 @@ app.use('/image',image);
 //imageservice
 app.use('/imageser',imageser);
 
+//allimagebyservice
+app.use('/allimagebyserv',getAllImageByServ);
 //sercatjoin
 app.use('/sercatjoin',sercatjoin);
 
