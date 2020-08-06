@@ -12,6 +12,9 @@ var employee=require('./routes/employee_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
+var personregister =require('./routes/persondetailregister_route');
+var persondetaildelete = require('./routes/persondetailDelete_route');
+var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
 var servicecat=require('./routes/servicecat_route');
@@ -20,6 +23,8 @@ var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
+var image=require('./routes/image_route');
+
 
 var app = express();
 
@@ -46,6 +51,9 @@ app.use('/person',person);
 
 //Person Detail
 app.use('/persondetail',persondetail);
+app.use('/personregister',personregister);
+app.use('/persondetaildelete',persondetaildelete);
+app.use('/adminlogin',adminlogin);
 
 //Package
 app.use('/package',package);
@@ -66,6 +74,9 @@ app.use('/ordermaintain',ordermaintain);
 
 //feedback
 app.use('/feedback',feedback);
+
+//image
+app.use('/image',image);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

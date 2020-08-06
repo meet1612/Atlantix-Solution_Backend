@@ -26,7 +26,7 @@ router.get("/:mobile_no?", function (req, res, next) {
 });
 
 router.post("/", function (req, res, next) {
-  persondetail.PersondetailLogin(req.body, function (err, rows) {
+  persondetail.PersondetailLoginforUser(req.body, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
@@ -48,7 +48,7 @@ router.put("/:id?", function (req, res, next) {
       }
     });
   } else {
-    persondetail.changepass(req.body, function (err, rows) {
+    persondetail.changepwd(req.body, function (err, rows) {
       if (err) {
         res.json(err);
       } else {
