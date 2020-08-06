@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var employee=require('./routes/employee_route');
+var employeeservice=require('./routes/employeeservice_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
@@ -22,12 +23,14 @@ var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
+var serviceCompelete=require('./routes/ordermaintain_serviceComplete_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
 var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
+const e = require('express');
 
 
 var app = express();
@@ -49,6 +52,8 @@ app.use('/users', usersRouter);
 app.use('/employee',employee);
 app.use('/deleteemployee',deleteemployee);
 
+//Employee Service
+app.use('/employeeservice',employeeservice);
 
 //Person
 app.use('/person',person);
@@ -77,6 +82,9 @@ app.use('/deleteservice',deleteservice);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
+app.use('/serviceCompelete',serviceCompelete);
+
+
 
 //feedback
 app.use('/feedback',feedback);
