@@ -15,7 +15,11 @@ var employee={
 
     addEmployee:function(item,filename,callback){
         var d=new Date();
+<<<<<<< HEAD
         return db.query("insert into employee_tbl values(?,?,?,?,?,?,?,?,?)",[item.e_mobile,item.aadharcard_no,item.e_name,item.e_address,item.e_pincode,item.e_workingstatus,d,d,item.e_status],callback);
+=======
+        return db.query("insert into employee_tbl values(e_mobile,aadharcard_no,e_name,e_image,e_address,e_pincode,e_workingstatus,e_addedAt,e_updatedAt,e_status)",[item.e_mobile,item.aadharcard_no,item.e_name,filename,item.e_address,item.e_pincode,item.e_workingstatus,d,d,item.e_status],callback);
+>>>>>>> 6fc09d1689bb797b692de651950cf07cc46b1f69
     },
 
     updateEmployee:function(mobile_no,item,callback){
