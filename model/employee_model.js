@@ -2,7 +2,7 @@ var db=require('../dbconnection');
 var employee={
     
     getAllEmployee:function(callback){
-        return db.query("select * from employee_tbl where e_status=0",callback);
+        return db.query("select * from employee_tbl",callback);
     },
 
     getEmployeeById:function(mobile_no,callback){
@@ -15,7 +15,7 @@ var employee={
 
     addEmployee:function(item,filename,callback){
         var d=new Date();
-        return db.query("insert into employee_tbl values(e_mobile,aadharcard_no,e_name,e_image,e_address,e_pincode,e_workingstatus,e_addedAt,e_updatedAt,e_status)",[item.e_mobile,item.aadharcard_no,item.e_name,filename,item.e_address,item.e_pincode,item.e_workingstatus,d,d,item.e_status],callback);
+        return db.query("INSERT INTO employee_tbl(e_mobile, aadharcard_no, e_name, e_image, e_address, e_pincode, e_workingstatus, e_addedAt, e_updatedAt, e_status) VALUES (?,?,?,?,?,?,?,?,?,?)",[item.e_mobile, item.aadharcard_no, item.e_name, filename, item.e_address, item.e_pincode, item.e_workingstatus, d, d, item.e_status],callback);
     },
 
     updateEmployee:function(mobile_no,item,callback){
