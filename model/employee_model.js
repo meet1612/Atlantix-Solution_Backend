@@ -2,15 +2,15 @@ var db=require('../dbconnection');
 var employee={
     
     getAllEmployee:function(callback){
-        return db.query("select * from employee_tbl",callback);
+        return db.query("select * from employee_tbl where e_status=0",callback);
     },
 
     getEmployeeById:function(mobile_no,callback){
         return db.query("select * from employee_tbl where e_mobile=?",[mobile_no],callback);
     },
 
-    getEmployeeService:function(callback){
-        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id",callback);
+    getEmployeeServiceById:function(mobile_no,callback){
+        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=?",[mobile_no],callback);
     },
 
     addEmployee:function(item,filename,callback){
