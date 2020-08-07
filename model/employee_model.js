@@ -15,7 +15,7 @@ var employee={
 
     addEmployee:function(item,filename,callback){
         var d=new Date();
-        return db.query("insert into employee_tbl values(?,?,?,?,?,?,?,?,?,?)",[item.e_mobile,item.aadharcard_no,item.e_name,filename,item.e_address,item.e_pincode,item.e_workingstatus,d,d,item.e_status],callback);
+        return db.query("insert into employee_tbl values(?,?,?,?,?,?,?,?,?)",[item.e_mobile,item.aadharcard_no,item.e_name,item.e_address,item.e_pincode,item.e_workingstatus,d,d,item.e_status],callback);
     },
 
     updateEmployee:function(mobile_no,item,callback){

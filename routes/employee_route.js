@@ -13,8 +13,8 @@ var storage = multer.diskStorage({
     cb(
       null,
       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
+    )
+  }
 });
 var upload = multer({ storage: storage });
 
