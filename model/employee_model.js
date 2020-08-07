@@ -2,7 +2,7 @@ var db=require('../dbconnection');
 var employee={
     
     getAllEmployee:function(callback){
-        return db.query("select * from employee_tbl",callback);
+        return db.query("select * from employee_tbl where e_status = 0",callback);
     },
 
     getEmployeeById:function(mobile_no,callback){
