@@ -77,6 +77,7 @@ app.use('/sellingcnt',sellingcnt);
 
 //Package Service
 app.use('/packageservice',packageservice);
+
 //Service Category
 app.use('/servicecat',servicecat);
 
@@ -101,6 +102,7 @@ app.use('/imageser',imageser);
 
 //allimagebyservice
 app.use('/allimagebyserv',getAllImageByServ);
+
 //sercatjoin
 app.use('/sercatjoin',sercatjoin);
 

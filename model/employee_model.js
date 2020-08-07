@@ -22,7 +22,7 @@ var employee={
         var d=new Date();
         return db.query("update employee_tbl set aadharcard_no=?,e_name=?,e_address=?, e_pincode=?, e_workingstatus=?,e_updatedAt=? where e_status=0 and e_mobile=?",[item.aadharcard_no,item.e_name,item.e_address,item.e_pincode,item.e_workingstatus,d,mobile_no],callback);
     },
-
+    
     deleteEmployee:function(mobile_no,item,callback){
         var d=new Date();
         return db.query("update employee_tbl set  e_updatedAt=? ,e_status=1 where e_mobile=?",[d,mobile_no],callback);
