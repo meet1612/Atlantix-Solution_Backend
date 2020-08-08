@@ -22,6 +22,7 @@ var packagepurchase=require('./routes/packagepurchase_route');
 var packageservice=require('./routes/packageservice_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
+var ServiceByName=require('./routes/getServiceByName_route');
 var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
 var serviceCompelete=require('./routes/ordermaintain_serviceComplete_route');
@@ -92,6 +93,7 @@ app.use('/servicecatdel',servicecatdel);
 //Service
 app.use('/service',service);
 app.use('/deleteservice',deleteservice);
+app.use('/ServiceByName',ServiceByName);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
