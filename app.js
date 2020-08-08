@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 
 var employee=require('./routes/employee_route');
 var employeeservice=require('./routes/employeeservice_route');
+var employeeservicebysidemobile=require('./routes/employeeserviceDeleteByEmobileSid_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
@@ -57,6 +58,8 @@ app.use('/deleteemployee',deleteemployee);
 
 //Employee Service
 app.use('/employeeservice',employeeservice);
+app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
+employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
