@@ -26,6 +26,10 @@ var service={
         var d=new Date();
         return db.query("update service_tbl set s_updatedAt=?,s_status=? where s_id=?",[d,"1",s_id],callback);
     },
+    deleteServiceByCatId:function(sc_id,callback){
+        var d=new Date();
+        return db.query("update service_tbl set s_updatedAt=?,s_status=? where sc_id=?",[d,"1",sc_id],callback);
+    },
     getServiceByCategory:function(callback){
         return db.query("select s.*,sc.* from service_tbl s,servicecategory_tbl sc where sc.sc_id=s.sc_id",callback);
     }
