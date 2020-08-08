@@ -17,6 +17,9 @@ var packagePurchase={
     deletePackagePurchase:function(id,item,callback){
         var d=new Date();
         return db.query("update packagepurchase_tbl set pp_status=1 where pp_id=?",[id],callback);
+    },
+    topSellingPackagewithCount:function(callback){
+        return db.query("select pk.pk_name, COUNT(pp.pk_id) from packagepurchase_tbl pp, package_tbl pk where pk.pk_id = pp.pk_id group by pk.pk_name Order by COUNT(pp.pk_id) desc LIMIT 3",callback);
     }
 };
 

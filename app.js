@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 
 var employee=require('./routes/employee_route');
 var employeeservice=require('./routes/employeeservice_route');
+var employeeservicebysidemobile=require('./routes/employeeserviceDeleteByEmobileSid_route');
 var deleteemployee=require('./routes/employeeDelete_route');
 var person=require('./routes/person_route');
 var persondetail=require('./routes/persondetail_route');
@@ -30,6 +31,9 @@ var image=require('./routes/image_route');
 var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
+var sellingcnt=require('./routes/topSellingPackageCount_route');
+
+
 const e = require('express');
 
 
@@ -54,6 +58,8 @@ app.use('/deleteemployee',deleteemployee);
 
 //Employee Service
 app.use('/employeeservice',employeeservice);
+app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
+employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
@@ -70,9 +76,11 @@ app.use('/deletepackage',deletepackage);
 
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
+app.use('/sellingcnt',sellingcnt);
 
 //Package Service
 app.use('/packageservice',packageservice);
+
 //Service Category
 app.use('/servicecat',servicecat);
 
@@ -97,6 +105,7 @@ app.use('/imageser',imageser);
 
 //allimagebyservice
 app.use('/allimagebyserv',getAllImageByServ);
+
 //sercatjoin
 app.use('/sercatjoin',sercatjoin);
 
