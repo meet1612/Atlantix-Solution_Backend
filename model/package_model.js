@@ -15,7 +15,7 @@ var package={
 
     addPackage:function(item,callback){
         var d=new Date();
-        return db.query("insert into package_tbl values(?,?,?,?,?,?,?,?,?)",[item.pk_name,item.pk_description,item.pk_price,item.pk_discount,item.pk_includedser,item.pk_duration,d,d,item.pk_status],callback);
+        return db.query("insert into package_tbl values(?,?,?,?,?,?,?,?,?,?)",['',item.pk_name,item.pk_description,item.pk_price,item.pk_discount,item.pk_includedser,item.pk_duration,d,d,item.pk_status],callback);
     },
 
     updatePackage:function(id,item,callback){
