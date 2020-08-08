@@ -10,7 +10,7 @@ var employee={
     },
 
     getEmployeeServiceById:function(mobile_no,callback){
-        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and e.e_status=0",[mobile_no],callback);
+        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and es_status=0",[mobile_no],callback);
     },
 
     addEmployee:function(item,filename,callback){
