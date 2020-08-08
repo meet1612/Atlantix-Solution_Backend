@@ -44,4 +44,14 @@ router.put("/:s_id", function(req, res, next) {
     }
   });
 });
+
+router.delete("/:sc_id", function(req, res, next) {
+  service.deleteServiceByCatId(req.params.sc_id,function(err, rows) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+});
 module.exports = router;
