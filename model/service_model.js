@@ -2,11 +2,11 @@ var db=require('../dbconnection');
 var service={
     
     getAllService:function(callback){
-        return db.query("select s.s_id,s.s_name,s.s_description,s.sc_id,sc.sc_name,s.s_addedAt,s.s_updatedAt,s.s_status from service_tbl s,servicecategory_tbl sc where s.sc_id=sc.sc_id",callback);
+        return db.query("select s.s_id,s.s_name,s.s_description,s.sc_id,sc.sc_name,s.s_addedAt,s.s_updatedAt,s.s_status from service_tbl s,servicecategory_tbl sc where s.sc_id=sc.sc_id and s.s_status=0",callback);
     },
 
     getServiceById:function(s_id,callback){
-        return db.query("select * from service_tbl where s_id=?",[s_id],callback);
+        return db.query("select * from service_tbl where s_status=0 and s_id=?",[s_id],callback);
     },
     addService:function(item,callback){
         var d=new Date();

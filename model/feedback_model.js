@@ -7,11 +7,11 @@ var feedback={
     },
     addFeedback:function(item,callback)
     {
-        return db.query("insert into feedback_tbl values(?,?,?,?)",[item.f_id,item.f_experience,item.f_comment,item.p_mobile],callback);
+        return db.query("insert into feedback_tbl values(?,?,?,?,?)",[item.f_id,item.f_experience,item.f_comment,item.p_mobile,'0'],callback);
     },
     deleteFeedback:function(id,callback)
     {
-        return db.query("delete from feedback_tbl where f_id=?",[id],callback);
+        return db.query("update feedback_tbl set f_status=1 where f_id=?",[id],callback);
     }
 };
 module.exports=feedback;

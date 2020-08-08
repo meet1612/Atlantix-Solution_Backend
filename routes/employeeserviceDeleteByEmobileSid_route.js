@@ -2,7 +2,7 @@ var employee = require("../model/employee_model");
 var express = require("express");
 var router = express.Router();
 
-router.delete("/", function(req, res, next) {
+router.put("/", function(req, res, next) {
   employee.deleteEmployeeServiceByEmobileSid(req.body,function(err, rows) {
     if (err) {
       res.json(err);

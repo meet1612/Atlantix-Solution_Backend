@@ -6,7 +6,7 @@ var package={
     },
 
     getPackageById:function(id,callback){
-        return db.query("select * from package_tbl where pk_id=?",[id],callback);
+        return db.query("select * from package_tbl where pk_status=0 and pk_id=?",[id],callback);
     },
 
     getPackageServiceById:function(id,callback){

@@ -20,7 +20,7 @@ router.post("/", function(req, res, next) {
     }
   });
 });
-router.delete("/:es_id", function(req, res, next) {
+router.put("/:es_id", function(req, res, next) {
   employee.deleteEmployeeService(req.params.es_id,function(err, rows) {
     if (err) {
       res.json(err);

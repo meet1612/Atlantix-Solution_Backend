@@ -6,11 +6,11 @@ var employee={
     },
 
     getEmployeeById:function(mobile_no,callback){
-        return db.query("select * from employee_tbl where e_mobile=?",[mobile_no],callback);
+        return db.query("select * from employee_tbl where e_mobile=? and e_status=0",[mobile_no],callback);
     },
 
     getEmployeeServiceById:function(mobile_no,callback){
-        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=?",[mobile_no],callback);
+        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and e_status=0",[mobile_no],callback);
     },
 
     addEmployee:function(item,filename,callback){
@@ -19,13 +19,13 @@ var employee={
     },
     addEmployeeService:function(item,filename,callback){
         var d=new Date();
-        return db.query("INSERT INTO employeeservice_tbl(es_id, e_mobile, s_id) VALUES (?,?,?)",[item.es_id, item.e_mobile, item.s_id],callback);
+        return db.query("INSERT INTO employeeservice_tbl(es_id, e_mobile, s_id,es_status) VALUES (?,?,?,?)",[item.es_id, item.e_mobile, item.s_id,'0'],callback);
     },
     deleteEmployeeService:function(es_id,callback){
-        return db.query("delete from employeeservice_tbl where es_id=?",[es_id],callback);
+        return db.query("update employeeservice_tbl set es_status=1 where es_id=?",[es_id],callback);
     },
     deleteEmployeeServiceByEmobileSid:function(item,callback){
-        return db.query("delete from employeeservice_tbl where e_mobile=? and s_id=?",[item.e_mobile,item.s_id],callback);
+        return db.query("update employeeservice_tbl set es_status=1 where e_mobile=? and s_id=?",[item.e_mobile,item.s_id],callback);
     },
     updateEmployee:function(mobile_no,item,callback){
         var d=new Date();

@@ -19,7 +19,6 @@ var ordermaintaintbl={
         return db.query("update ordermaintain_tbl set pp_id=?,s_id=?,e_mobile=?,om_status=? where om_id=?",[item.pp_id,item.s_id,item.e_mobile,"0",om_id],callback);
     },
     serviceCompleted:function(om_id,item,callback){
-    
         return db.query("update ordermaintain_tbl set om_status=? where om_id=?",["0",om_id],callback);
     }    
 

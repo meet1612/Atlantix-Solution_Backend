@@ -32,6 +32,9 @@ var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
 var sellingcnt=require('./routes/topSellingPackageCount_route');
+var imagedel=require('./routes/imageDelete_route');
+var persondel=require('./routes/personDelete_route');
+var servicecatdel=require('./routes/servicecatDel_route');
 
 
 const e = require('express');
@@ -63,6 +66,7 @@ employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
+app.use('/persondel',persondel);
 
 //Person Detail
 app.use('/persondetail',persondetail);
@@ -83,6 +87,7 @@ app.use('/packageservice',packageservice);
 
 //Service Category
 app.use('/servicecat',servicecat);
+app.use('/servicecatdel',servicecatdel);
 
 //Service
 app.use('/service',service);
@@ -99,6 +104,7 @@ app.use('/feedback',feedback);
 
 //image
 app.use('/image',image);
+app.use('/imagedel',imagedel);
 
 //imageservice
 app.use('/imageser',imageser);
