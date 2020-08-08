@@ -10,7 +10,7 @@ var servicecat={
     },
 
     addServicecat:function(item,callback){
-        return db.query("insert into servicecategory_tbl values(?,?,?)",[item.sc_id,item.sc_name,'0'],callback);
+        return db.query("insert into servicecategory_tbl(sc_name,sc_status) values(?,?)",[item.sc_name,'0'],callback);
     },
 
     updateServicecat:function(sc_id,item,callback){

@@ -8,6 +8,12 @@ var service={
     getServiceById:function(s_id,callback){
         return db.query("select * from service_tbl where s_status=0 and s_id=?",[s_id],callback);
     },
+
+    
+    getServiceByName:function(s_name,callback){
+        return db.query("select * from service_tbl where s_status=0 and s_name=?",[s_name],callback);
+    },
+
     addService:function(item,callback){
         var d=new Date();
         return db.query("insert into service_tbl values(?,?,?,?,?,?,?)",[item.s_id,item.s_name,item.s_description,item.sc_id,d,d,item.s_status],callback);

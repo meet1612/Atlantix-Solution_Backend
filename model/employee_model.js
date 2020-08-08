@@ -24,8 +24,8 @@ var employee={
     deleteEmployeeService:function(es_id,callback){
         return db.query("update employeeservice_tbl set es_status=1 where es_id=?",[es_id],callback);
     },
-    deleteEmployeeServiceByEmobileSid:function(item,callback){
-        return db.query("update employeeservice_tbl set es_status=1 where e_mobile=? and s_id=?",[item.e_mobile,item.s_id],callback);
+    deleteEmployeeServiceByEmobileSid:function(mobile_no,sid,callback){
+        return db.query("update employeeservice_tbl set es_status=1 where e_mobile=? and s_id=?",[mobile_no,sid],callback);
     },
     updateEmployee:function(mobile_no,item,callback){
         var d=new Date();
