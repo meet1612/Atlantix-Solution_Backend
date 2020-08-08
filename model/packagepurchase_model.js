@@ -2,11 +2,11 @@ var db=require('../dbconnection');
 var packagePurchase={
     
     getAllPackagePurchase:function(callback){
-        return db.query("select pp.pp_id,pp.p_mobile,pp.pp_date,pp.pp_amount,p.pk_name,pp.pp_endDate,pp.pp_status from packagepurchase_tbl pp,package_tbl p WHERE pp.pk_id=p.pk_id",callback);
+        return db.query("select pp.pp_id,pp.p_mobile,pp.pp_date,pp.pp_amount,p.pk_name,pp.pp_endDate,pp.pp_status from packagepurchase_tbl pp,package_tbl p WHERE pp.pk_id=p.pk_id and pp.pp_status=0",callback);
     },
 
     getPackagePurchaseById:function(id,callback){
-        return db.query("select * from packagepurchase_tbl where pp_id=?",[id],callback);
+        return db.query("select * from packagepurchase_tbl where pp_status=0 and pp_id=?",[id],callback);
     },
 
     addPackagePurchase:function(item,callback){

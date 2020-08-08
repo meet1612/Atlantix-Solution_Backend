@@ -22,7 +22,7 @@ router.post("/", function(req, res, next) {
   });
 });
 
-router.delete("/:id", function(req, res, next) {
+router.put("/:id", function(req, res, next) {
     feedback.deleteFeedback(req.params.id,function(err, rows) {
       if (err) {
         res.json(err);

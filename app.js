@@ -22,6 +22,7 @@ var packagepurchase=require('./routes/packagepurchase_route');
 var packageservice=require('./routes/packageservice_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
+var ServiceByName=require('./routes/getServiceByName_route');
 var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
 var serviceCompelete=require('./routes/ordermaintain_serviceComplete_route');
@@ -32,6 +33,9 @@ var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
 var sellingcnt=require('./routes/topSellingPackageCount_route');
+var imagedel=require('./routes/imageDelete_route');
+var persondel=require('./routes/personDelete_route');
+var servicecatdel=require('./routes/servicecatDel_route');
 
 
 const e = require('express');
@@ -59,10 +63,10 @@ app.use('/deleteemployee',deleteemployee);
 //Employee Service
 app.use('/employeeservice',employeeservice);
 app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
-employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
+app.use('/persondel',persondel);
 
 //Person Detail
 app.use('/persondetail',persondetail);
@@ -83,10 +87,12 @@ app.use('/packageservice',packageservice);
 
 //Service Category
 app.use('/servicecat',servicecat);
+app.use('/servicecatdel',servicecatdel);
 
 //Service
 app.use('/service',service);
 app.use('/deleteservice',deleteservice);
+app.use('/ServiceByName',ServiceByName);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
@@ -99,6 +105,7 @@ app.use('/feedback',feedback);
 
 //image
 app.use('/image',image);
+app.use('/imagedel',imagedel);
 
 //imageservice
 app.use('/imageser',imageser);
