@@ -63,7 +63,6 @@ app.use('/deleteemployee',deleteemployee);
 //Employee Service
 app.use('/employeeservice',employeeservice);
 app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
-employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
