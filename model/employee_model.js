@@ -10,7 +10,7 @@ var employee={
     },
 
     getEmployeeServiceById:function(mobile_no,callback){
-        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and e_status=0",[mobile_no],callback);
+        return db.query("select s.*, e.*, es.* from service_tbl s,employee_tbl e ,employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and e.e_status=0",[mobile_no],callback);
     },
 
     addEmployee:function(item,filename,callback){
@@ -35,6 +35,10 @@ var employee={
     deleteEmployee:function(mobile_no,item,callback){
         var d=new Date();
         return db.query("update employee_tbl set  e_updatedAt=? ,e_status=1 where e_mobile=?",[d,mobile_no],callback);
+    },
+
+    getEmployeeRemainingServiceById:function(mobile_no,callback){
+        return db.query("select s_name from service_tbl where s_name NOT IN (select s_name from service_tbl s, employee_tbl e, employeeservice_tbl es where s.s_id=es.s_id and e.e_mobile=es.e_mobile and e.e_mobile=? and s_status=0 and es_status=0)",[mobile_no],callback);
     }
 
 };

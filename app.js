@@ -35,6 +35,7 @@ var sellingcnt=require('./routes/topSellingPackageCount_route');
 var imagedel=require('./routes/imageDelete_route');
 var persondel=require('./routes/personDelete_route');
 var servicecatdel=require('./routes/servicecatDel_route');
+var empremainingser=require('./routes/employeeremainingservices_route');
 
 
 const e = require('express');
@@ -58,6 +59,7 @@ app.use('/users', usersRouter);
 //Employee
 app.use('/employee',employee);
 app.use('/deleteemployee',deleteemployee);
+app.use('/empremainingser',empremainingser);
 
 //Employee Service
 app.use('/employeeservice',employeeservice);
