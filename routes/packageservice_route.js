@@ -11,6 +11,26 @@ router.get('/:id?',function(req,res,next){
                 res.json(rows);
             }    
         });
-
     });    
+
+router.post("/", function(req, res, next) {
+    package.addPackageService(req.body,function(err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        });
+});
+
+router.put("/:pkid/:sid", function(req, res, next) {
+    package.deletePackageServiceByPackageIdSid(req.params.pkid,req.params.sid,function(err, rows) {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(rows);
+      }
+    });
+  });
+   
 module.exports = router;

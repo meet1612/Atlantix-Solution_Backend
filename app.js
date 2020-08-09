@@ -20,6 +20,10 @@ var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
 var packageservice=require('./routes/packageservice_route');
+
+var RemainingServiceInPackage=require('./routes/Packageremainingservices_route');
+var servicebypkid=require('./routes/getServiceByPackageId_route');
+
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var ServiceByName=require('./routes/getServiceByName_route');
@@ -37,6 +41,7 @@ var imagedel=require('./routes/imageDelete_route');
 var persondel=require('./routes/personDelete_route');
 var servicecatdel=require('./routes/servicecatDel_route');
 var empremainingser=require('./routes/employeeremainingservices_route');
+
 
 
 const e = require('express');
@@ -86,6 +91,8 @@ app.use('/sellingcnt',sellingcnt);
 
 //Package Service
 app.use('/packageservice',packageservice);
+app.use('/servicebypkid',servicebypkid);
+app.use('/RemainingServiceInPackage',RemainingServiceInPackage);
 
 //Service Category
 app.use('/servicecat',servicecat);
