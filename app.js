@@ -23,6 +23,7 @@ var packageservice=require('./routes/packageservice_route');
 
 var RemainingServiceInPackage=require('./routes/Packageremainingservices_route');
 var servicebypkid=require('./routes/getServiceByPackageId_route');
+var pkpurchasehistory=require('./routes/packagePurchaseHistory_route');
 
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
@@ -88,6 +89,7 @@ app.use('/deletepackage',deletepackage);
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
+app.use('/pkpurchasehistory',pkpurchasehistory);
 
 //Package Service
 app.use('/packageservice',packageservice);

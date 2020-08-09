@@ -20,6 +20,9 @@ var packagePurchase={
     },
     topSellingPackagewithCount:function(callback){
         return db.query("select pk.pk_name, COUNT(pp.pk_id) as count from packagepurchase_tbl pp, package_tbl pk where pk.pk_id = pp.pk_id group by pk.pk_name Order by COUNT(pp.pk_id) desc LIMIT 3",callback);
+    },
+    packagePurchaseHistoryById:function(mobile_no,callback){
+        return db.query("select pp.*,pd.*,pk.* from packagepurchase_tbl pp, persondetail_tbl pd, package_tbl pk where pp.pk_id=pk.pk_id and pp.p_mobile=pd.p_mobile and pp.p_mobile=?",[mobile_no],callback);
     }
 };
 
