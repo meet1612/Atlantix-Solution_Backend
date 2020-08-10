@@ -2,11 +2,11 @@ var db=require('../dbconnection');
 var ordermaintaintbl={
     
     getAllOrdermaintain:function(callback){
-        return db.query("SELECT om.om_id, p.pk_name, pd.p_name, s.s_name ,om.om_status,om.e_mobile FROM ordermaintain_tbl om, packagepurchase_tbl pp, service_tbl s,package_tbl p, persondetail_tbl pd,employee_tbl e WHERE om.pp_id = pp.pp_id AND p.pk_id = pp.pk_id AND pp.p_mobile = pd.p_mobile AND om.e_mobile=e.e_mobile AND om.s_id = s.s_id",callback);
+        return db.query("SELECT om.om_id, p.pk_name, pd.p_name,pd.p_mobile,e.e_name, s.s_name ,om.om_status,om.e_mobile FROM ordermaintain_tbl om, packagepurchase_tbl pp, service_tbl s,package_tbl p, persondetail_tbl pd,employee_tbl e WHERE om.pp_id = pp.pp_id AND p.pk_id = pp.pk_id AND pp.p_mobile = pd.p_mobile AND om.e_mobile=e.e_mobile AND om.s_id = s.s_id AND om.om_status = 1",callback);
     },
 
     getAllOrdermaintainById:function(om_id,callback){
-        return db.query("SELECT om.om_id, p.pk_name, pd.p_name, s.s_name ,om.om_status,om.e_mobile FROM ordermaintain_tbl om, packagepurchase_tbl pp, service_tbl s,package_tbl p, persondetail_tbl pd,employee_tbl e WHERE om.pp_id = pp.pp_id AND p.pk_id = pp.pk_id AND pp.p_mobile = pd.p_mobile AND om.e_mobile=e.e_mobile AND om.s_id = s.s_id AND om.s_id = s.s_id AND om_id=?",[om_id],callback);
+        return db.query("SELECT om.om_id, p.pk_name, pd.p_name, s.s_name,pd.p_mobile,e.e_name ,om.om_status,om.e_mobile FROM ordermaintain_tbl om, packagepurchase_tbl pp, service_tbl s,package_tbl p, persondetail_tbl pd,employee_tbl e WHERE om.pp_id = pp.pp_id AND p.pk_id = pp.pk_id AND pp.p_mobile = pd.p_mobile AND om.e_mobile=e.e_mobile AND om.s_id = s.s_id AND om.s_id = s.s_id AND om.om_status = 1 AND om_id=?",[om_id],callback);
     },
 
     addOrdermaintain:function(item,callback){
