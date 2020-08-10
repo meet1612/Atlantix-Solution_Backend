@@ -25,6 +25,7 @@ var RemainingServiceInPackage=require('./routes/Packageremainingservices_route')
 var servicebypkid=require('./routes/getServiceByPackageId_route');
 var pkpurchasehistory=require('./routes/packagePurchaseHistory_route');
 
+var servicebycat=require('./routes/ServiceBySerCat_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
 var ServiceByName=require('./routes/getServiceByName_route');
@@ -101,7 +102,7 @@ app.use('/RemainingServiceInPackage',RemainingServiceInPackage);
 //Service Category
 app.use('/servicecat',servicecat);
 app.use('/servicecatdel',servicecatdel);
-
+app.use('/servicebycat',servicebycat);
 //Service
 app.use('/service',service);
 app.use('/deleteservice',deleteservice);

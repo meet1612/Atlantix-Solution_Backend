@@ -11,8 +11,5 @@ router.get('/:id?',function(req,res,next){
                 res.json(rows);
             }    
         });
-
-    });    
-
-   
+});    
 module.exports = router;
