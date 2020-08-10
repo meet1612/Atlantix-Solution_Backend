@@ -20,18 +20,15 @@ var adminlogin = require('./routes/persondetailAdminLogin_route');
 var package=require('./routes/package_route');
 var packagepurchase=require('./routes/packagepurchase_route');
 var packageservice=require('./routes/packageservice_route');
-
-var RemainingServiceInPackage=require('./routes/Packageremainingservices_route');
-var servicebypkid=require('./routes/getServiceByPackageId_route');
-var pkpurchasehistory=require('./routes/packagePurchaseHistory_route');
-
-var servicebycat=require('./routes/ServiceBySerCat_route');
 var servicecat=require('./routes/servicecat_route');
 var service=require('./routes/service_route');
-var ServiceByName=require('./routes/getServiceByName_route');
 var deleteservice=require('./routes/serviceDelete_route');
 var ordermaintain=require('./routes/ordermaintain_route');
 var serviceCompelete=require('./routes/ordermaintain_serviceComplete_route');
+var serviceFailed=require('./routes/ordermaintain_serviceFailed_route');
+var ordermaintainCountPending=require('./routes/ordemaintainCountPending_route');
+var ordermaintainCountFailed=require('./routes/ordermaintainCountFailed_route');
+var ordermaintainCountCompleted=require('./routes/ordermaintainCountComplete_route');
 var deletepackage=require('./routes/packageDelete_route');
 var feedback=require('./routes/feedback_route');
 var image=require('./routes/image_route');
@@ -39,12 +36,6 @@ var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
 var sellingcnt=require('./routes/topSellingPackageCount_route');
-var imagedel=require('./routes/imageDelete_route');
-var persondel=require('./routes/personDelete_route');
-var servicecatdel=require('./routes/servicecatDel_route');
-var empremainingser=require('./routes/employeeremainingservices_route');
-var cntuser= require('./routes/CntofunblockUser_route');
-
 
 
 const e = require('express');
@@ -68,22 +59,20 @@ app.use('/users', usersRouter);
 //Employee
 app.use('/employee',employee);
 app.use('/deleteemployee',deleteemployee);
-app.use('/empremainingser',empremainingser);
 
 //Employee Service
 app.use('/employeeservice',employeeservice);
 app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
+employeeservicebysidemobile
 
 //Person
 app.use('/person',person);
-app.use('/persondel',persondel);
 
 //Person Detail
 app.use('/persondetail',persondetail);
 app.use('/personregister',personregister);
 app.use('/persondetaildelete',persondetaildelete);
 app.use('/adminlogin',adminlogin);
-app.use('/cntuser',cntuser);
 
 //Package
 app.use('/package',package);
@@ -92,25 +81,24 @@ app.use('/deletepackage',deletepackage);
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
-app.use('/pkpurchasehistory',pkpurchasehistory);
 
 //Package Service
 app.use('/packageservice',packageservice);
-app.use('/servicebypkid',servicebypkid);
-app.use('/RemainingServiceInPackage',RemainingServiceInPackage);
 
 //Service Category
 app.use('/servicecat',servicecat);
-app.use('/servicecatdel',servicecatdel);
-app.use('/servicebycat',servicebycat);
+
 //Service
 app.use('/service',service);
 app.use('/deleteservice',deleteservice);
-app.use('/ServiceByName',ServiceByName);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
 app.use('/serviceCompelete',serviceCompelete);
+app.use('/serviceFailed',serviceFailed);
+app.use('/ordermaintainCountPending',ordermaintainCountPending);
+app.use('/ordermaintainCountFailed',ordermaintainCountFailed);
+app.use('/ordermaintainCountCompleted',ordermaintainCountCompleted);
 
 
 
@@ -119,7 +107,6 @@ app.use('/feedback',feedback);
 
 //image
 app.use('/image',image);
-app.use('/imagedel',imagedel);
 
 //imageservice
 app.use('/imageser',imageser);
