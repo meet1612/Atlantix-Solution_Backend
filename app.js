@@ -42,6 +42,7 @@ var imagedel=require('./routes/imageDelete_route');
 var persondel=require('./routes/personDelete_route');
 var servicecatdel=require('./routes/servicecatDel_route');
 var empremainingser=require('./routes/employeeremainingservices_route');
+var cntuser= require('./routes/CntofunblockUser_route');
 
 
 
@@ -81,6 +82,7 @@ app.use('/persondetail',persondetail);
 app.use('/personregister',personregister);
 app.use('/persondetaildelete',persondetaildelete);
 app.use('/adminlogin',adminlogin);
+app.use('/cntuser',cntuser);
 
 //Package
 app.use('/package',package);

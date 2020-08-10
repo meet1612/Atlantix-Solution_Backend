@@ -27,6 +27,9 @@ var persondetail={
     deletePersondetail:function(mobile_no,item,callback){
         var d=new Date();
         return db.query("update persondetail_tbl set  p_updatedAt=? ,p_status=1 where p_mobile=?",[d,mobile_no],callback);
+    },
+    cntOfUnblockUsers:function(callback){
+        return db.query("SELECT COUNT(p_id) as cnt FROM `persondetail_tbl` WHERE p_id=2 and p_status=0",callback);
     }
 };
 module.exports=persondetail;
