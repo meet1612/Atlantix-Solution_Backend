@@ -38,6 +38,7 @@ var sercatjoin=require('./routes/servicecategoryjoin_route');
 var sellingcnt=require('./routes/topSellingPackageCount_route');
 var servicecnt=require('./routes/getServiceCount_route');
 var packagecnt=require('./routes/getPackageCount_route');
+var cntusers=require('./routes/CntofunblockUser_route');
 
 const e = require('express');
 
@@ -74,6 +75,7 @@ app.use('/persondetail',persondetail);
 app.use('/personregister',personregister);
 app.use('/persondetaildelete',persondetaildelete);
 app.use('/adminlogin',adminlogin);
+app.use('/cntusers',cntusers);
 
 //Package
 app.use('/package',package);

@@ -46,7 +46,7 @@ var package={
     },
     
     getPackageCount:function(callback){
-        return db.query("SELECT COUNT(pk_id) FROM `package_tbl` WHERE pk_status=0",callback);
+        return db.query("SELECT COUNT(pk_id) as pcount FROM `package_tbl` WHERE pk_status=0",callback);
     }
 };
 

@@ -36,7 +36,7 @@ var service={
     },
 
     getServiceCount:function(callback){
-        return db.query("SELECT COUNT(s_id) FROM `service_tbl` WHERE s_status=0",callback);
+        return db.query("SELECT COUNT(s_id) as scount FROM `service_tbl` WHERE s_status=0",callback);
     }
 };
 
