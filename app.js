@@ -36,7 +36,8 @@ var imageser=require('./routes/imageservice_route');
 var getAllImageByServ=require('./routes/getAllImageByService_route');
 var sercatjoin=require('./routes/servicecategoryjoin_route');
 var sellingcnt=require('./routes/topSellingPackageCount_route');
-
+var servicecnt=require('./routes/getServiceCount_route');
+var packagecnt=require('./routes/getPackageCount_route');
 
 const e = require('express');
 
@@ -81,6 +82,7 @@ app.use('/deletepackage',deletepackage);
 //Package Purchase 
 app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
+app.use('/packagecnt',packagecnt);
 
 //Package Service
 app.use('/packageservice',packageservice);
@@ -91,6 +93,7 @@ app.use('/servicecat',servicecat);
 //Service
 app.use('/service',service);
 app.use('/deleteservice',deleteservice);
+app.use('/servicecnt',servicecnt);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);

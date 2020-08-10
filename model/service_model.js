@@ -30,8 +30,13 @@ var service={
         var d=new Date();
         return db.query("update service_tbl set s_updatedAt=?,s_status=? where sc_id=?",[d,"1",sc_id],callback);
     },
+    
     getServiceByCategory:function(callback){
         return db.query("select s.*,sc.* from service_tbl s,servicecategory_tbl sc where sc.sc_id=s.sc_id",callback);
+    },
+
+    getServiceCount:function(callback){
+        return db.query("SELECT COUNT(s_id) FROM `service_tbl` WHERE s_status=0",callback);
     }
 };
 

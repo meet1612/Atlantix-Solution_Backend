@@ -43,6 +43,10 @@ var package={
     deletePackage:function(id,item,callback){
         var d=new Date();
         return db.query("update package_tbl set pk_updatedAt=? ,pk_status=1 where pk_id=?",[d,id],callback);
+    },
+    
+    getPackageCount:function(callback){
+        return db.query("SELECT COUNT(pk_id) FROM `package_tbl` WHERE pk_status=0",callback);
     }
 };
 
