@@ -39,6 +39,7 @@ var sellingcnt=require('./routes/topSellingPackageCount_route');
 var servicecnt=require('./routes/getServiceCount_route');
 var packagecnt=require('./routes/getPackageCount_route');
 var cntusers=require('./routes/CntofunblockUser_route');
+var history=require('./routes/packagePurchaseHistory_route');
 
 const e = require('express');
 
@@ -65,7 +66,7 @@ app.use('/deleteemployee',deleteemployee);
 //Employee Service
 app.use('/employeeservice',employeeservice);
 app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
-employeeservicebysidemobile
+
 
 //Person
 app.use('/person',person);
@@ -76,6 +77,7 @@ app.use('/personregister',personregister);
 app.use('/persondetaildelete',persondetaildelete);
 app.use('/adminlogin',adminlogin);
 app.use('/cntusers',cntusers);
+app.use('/history',history);
 
 //Package
 app.use('/package',package);
@@ -85,6 +87,7 @@ app.use('/deletepackage',deletepackage);
 app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
 app.use('/packagecnt',packagecnt);
+
 
 //Package Service
 app.use('/packageservice',packageservice);
