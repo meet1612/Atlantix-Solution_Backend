@@ -18,7 +18,7 @@ var package={
     },
 
     getServiceNotInPackageById:function(id,callback){
-        return db.query("select s_name from service_tbl where s_name NOT IN (select s_name from service_tbl s, package_tbl pk, packageservice_tbl ps where s.s_id=ps.s_id and pk.pk_id=ps.pk_id and pk.pk_id=? and s_status=0 and ps_status=0)",[id],callback);
+        return db.query("select s_name from service_tbl where s_status = 0 and s_name NOT IN (select s_name from service_tbl s, package_tbl pk, packageservice_tbl ps where s.s_id=ps.s_id and pk.pk_id=ps.pk_id and pk.pk_id=? and s_status=0 and ps_status=0)",[id],callback);
     },
     
     addPackageService:function(item,filename,callback){
