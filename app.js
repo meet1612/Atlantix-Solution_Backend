@@ -49,7 +49,7 @@ var servicecnt=require('./routes/getServiceCount_route');
 var packagecnt=require('./routes/getPackageCount_route');
 var cntusers=require('./routes/CntofunblockUser_route');
 var history=require('./routes/packagePurchaseHistory_route');
-
+var servicestatus=require('./routes/getServiceStatus_route');
 const e = require('express');
 
 
@@ -125,7 +125,7 @@ app.use('/serviceFailed',serviceFailed);
 app.use('/ordermaintainCountPending',ordermaintainCountPending);
 app.use('/ordermaintainCountFailed',ordermaintainCountFailed);
 app.use('/ordermaintainCountCompleted',ordermaintainCountCompleted);
-
+app.use('/servicestatus',servicestatus);
 
 
 //feedback
