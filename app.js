@@ -50,6 +50,8 @@ var packagecnt=require('./routes/getPackageCount_route');
 var cntusers=require('./routes/CntofunblockUser_route');
 var history=require('./routes/packagePurchaseHistory_route');
 var packagePurchaseCount=require('./routes/getPackagePurchaseCount_route');
+var servicestatus=require('./routes/getServiceStatus_route');
+var sms=require('./routes/sms_route');
 
 
 const e = require('express');
@@ -127,7 +129,7 @@ app.use('/serviceFailed',serviceFailed);
 app.use('/ordermaintainCountPending',ordermaintainCountPending);
 app.use('/ordermaintainCountFailed',ordermaintainCountFailed);
 app.use('/ordermaintainCountCompleted',ordermaintainCountCompleted);
-
+app.use('/servicestatus',servicestatus);
 
 
 //feedback
@@ -145,6 +147,9 @@ app.use('/allimagebyserv',getAllImageByServ);
 
 //sercatjoin
 app.use('/sercatjoin',sercatjoin);
+
+//sms
+app.use('/sms',sms);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
