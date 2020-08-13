@@ -49,6 +49,8 @@ var servicecnt=require('./routes/getServiceCount_route');
 var packagecnt=require('./routes/getPackageCount_route');
 var cntusers=require('./routes/CntofunblockUser_route');
 var history=require('./routes/packagePurchaseHistory_route');
+var packagePurchaseCount=require('./routes/getPackagePurchaseCount_route');
+
 
 const e = require('express');
 
@@ -99,7 +101,7 @@ app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
 app.use('/packagecnt',packagecnt);
 app.use('/pkpurchasehistory',pkpurchasehistory);
-
+app.use('/packagePurchaseCount',packagePurchaseCount);
 
 //Package Service
 app.use('/packageservice',packageservice);

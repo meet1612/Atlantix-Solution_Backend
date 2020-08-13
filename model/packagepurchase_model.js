@@ -3,6 +3,12 @@ var packagePurchase={
     
     getAllPackagePurchase:function(callback){
         return db.query("select pp.pp_id,pp.p_mobile,pp.pp_date,pp.pp_amount,p.pk_name,pp.pp_endDate,pp.pp_status from packagepurchase_tbl pp,package_tbl p WHERE pp.pk_id=p.pk_id",callback);
+       
+    },
+
+    getAllPackagePurchaseCount:function(callback){
+       
+        return db.query("select pk.pk_name, COUNT(pp.pk_id) as pp_count,pp.pp_date,pp.pp_amount from packagepurchase_tbl pp, package_tbl pk where pk.pk_id = pp.pk_id group by pk.pk_name Order by COUNT(pp.pk_id)",callback);
     },
 
     getPackagePurchaseById:function(id,callback){
