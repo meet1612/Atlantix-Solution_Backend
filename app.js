@@ -51,7 +51,7 @@ var cntusers=require('./routes/CntofunblockUser_route');
 var history=require('./routes/packagePurchaseHistory_route');
 var servicestatus=require('./routes/getServiceStatus_route');
 var sms=require('./routes/sms_route');
-
+var historydetail=require('./routes/gethistorydetailbyid_routes');
 
 const e = require('express');
 
@@ -102,6 +102,7 @@ app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
 app.use('/packagecnt',packagecnt);
 app.use('/pkpurchasehistory',pkpurchasehistory);
+app.use('/historydetail',historydetail);
 
 
 //Package Service

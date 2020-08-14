@@ -10,7 +10,11 @@ var package={
     },
 
     getPackageServiceById:function(id,callback){
-        return db.query("select ps.*,s.*,pk.*,sc.*,i.*,pp.* from packagepurchase_tbl pp,packageservice_tbl ps,service_tbl s,package_tbl pk, servicecategory_tbl sc,image_tbl i where pp.pk_id=pk.pk_id and ps.s_id=s.s_id and ps.pk_id=pk.pk_id and sc.sc_id=s.sc_id and i.s_id=s.s_id and ps.pk_id=? group by i.s_id",[id],callback);
+        return db.query("select ps.*,s.*,pk.*,sc.*,i.* from packageservice_tbl ps,service_tbl s,package_tbl pk, servicecategory_tbl sc,image_tbl i where ps.s_id=s.s_id and ps.pk_id=pk.pk_id and sc.sc_id=s.sc_id and i.s_id=s.s_id and ps.pk_id=? group by i.s_id",[id],callback);
+    },
+    getHistoryDetailById:function(id,callback)
+    {
+        return db.query("select ps.*,s.*,pk.*,sc.*,i.*,pp.* from packagepurchase_tbl pp ,packageservice_tbl ps,service_tbl s,package_tbl pk, servicecategory_tbl sc,image_tbl i where pp.pk_id=pk.pk_id and ps.s_id=s.s_id and ps.pk_id=pk.pk_id and sc.sc_id=s.sc_id and i.s_id=s.s_id and ps.pk_id=? group by i.s_id",[id],callback);
     },
     
     getServiceByPackageId:function(id,callback){
