@@ -52,7 +52,7 @@ var history=require('./routes/packagePurchaseHistory_route');
 var packagePurchaseCount=require('./routes/getPackagePurchaseCount_route');
 var servicestatus=require('./routes/getServiceStatus_route');
 var sms=require('./routes/sms_route');
-
+var servicenotorder=require('./routes/getServiceNotInOrderMaintaintbl_route');
 
 const e = require('express');
 
@@ -121,6 +121,8 @@ app.use('/service',service);
 app.use('/deleteservice',deleteservice);
 app.use('/servicecnt',servicecnt);
 app.use('/ServiceByName',ServiceByName);
+app.use('/servicestatus',servicestatus);
+app.use('/servicenotorder',servicenotorder);
 
 //ordermaintain
 app.use('/ordermaintain',ordermaintain);
@@ -129,7 +131,7 @@ app.use('/serviceFailed',serviceFailed);
 app.use('/ordermaintainCountPending',ordermaintainCountPending);
 app.use('/ordermaintainCountFailed',ordermaintainCountFailed);
 app.use('/ordermaintainCountCompleted',ordermaintainCountCompleted);
-app.use('/servicestatus',servicestatus);
+
 
 
 //feedback
