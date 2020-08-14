@@ -1,4 +1,4 @@
-var servicestatus = require("../model/ordermaintain_model");
+var servicestatus = require("../model/service_model");
 var express = require("express");
 var router = express.Router();
 
