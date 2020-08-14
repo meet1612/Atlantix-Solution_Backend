@@ -52,11 +52,8 @@ var history=require('./routes/packagePurchaseHistory_route');
 var packagePurchaseCount=require('./routes/getPackagePurchaseCount_route');
 var servicestatus=require('./routes/getServiceStatus_route');
 var sms=require('./routes/sms_route');
-<<<<<<< HEAD
 var historydetail=require('./routes/gethistorydetailbyid_routes');
-=======
 var servicenotorder=require('./routes/getServiceNotInOrderMaintaintbl_route');
->>>>>>> b4ae8f75b8b002497788a2795d1b323d4529572f
 
 const e = require('express');
 
@@ -107,12 +104,9 @@ app.use('/packagepurchase',packagepurchase);
 app.use('/sellingcnt',sellingcnt);
 app.use('/packagecnt',packagecnt);
 app.use('/pkpurchasehistory',pkpurchasehistory);
-<<<<<<< HEAD
 app.use('/historydetail',historydetail);
 
-=======
 app.use('/packagePurchaseCount',packagePurchaseCount);
->>>>>>> b4ae8f75b8b002497788a2795d1b323d4529572f
 
 //Package Service
 app.use('/packageservice',packageservice);
