@@ -58,7 +58,7 @@ var servicenotorder=require('./routes/getServiceNotInOrderMaintaintbl_route');
 var employeebyservice=require('./routes/employeebyservice_route');
 var totalEssentialServiceCount=require('./routes/totalEssentialServiceCount_route');
 var appointEmployee=require('./routes/appointEmployee_route');
-
+var servicebypkidANDscid=require('./routes/servicebypkidANDscid_route');
 
 const e = require('express');
 
@@ -119,6 +119,7 @@ app.use('/packagePurchaseCount',packagePurchaseCount);
 //Package Service
 app.use('/packageservice',packageservice);
 app.use('/servicebypkid',servicebypkid);
+app.use('/servicebypkidANDscid',servicebypkidANDscid);
 app.use('/RemainingServiceInPackage',RemainingServiceInPackage);
 
 
