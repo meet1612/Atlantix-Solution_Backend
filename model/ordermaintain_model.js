@@ -37,7 +37,7 @@ var ordermaintaintbl={
     countFailed:function(callback){
     
         return db.query("select count(*) from ordermaintain_tbl where om_status=?",["2"],callback);
-    }
+    },
     
     getServiceStatus: function (id, mobile_no, callback) {
     return db.query(
