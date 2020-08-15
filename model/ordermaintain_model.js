@@ -38,6 +38,25 @@ var ordermaintaintbl={
     
         return db.query("select count(*) from ordermaintain_tbl where om_status=?",["2"],callback);
     }
+    
+    getServiceStatus: function (id, mobile_no, callback) {
+    return db.query(
+      "SELECT s.s_name,om_status FROM package_tbl p,service_tbl s,packageservice_tbl ps,packagepurchase_tbl pp,ordermaintain_tbl om,persondetail_tbl pd WHERE p.pk_id=ps.pk_id and s.s_id=ps.s_id and pp.pk_id=p.pk_id AND om.pp_id=pp.pp_id and s.s_id=ps.s_id and om.s_id=s.s_id AND pd.p_mobile=pp.p_mobile and s_status=0 AND pp.pk_id=? AND pp.p_mobile=?",
+      [id, mobile_no],
+      callback
+    );
+  },
+
+    
+  //
+
+  totalEssentialServiceCount: function (id, callback) {
+    return db.query(
+      "select * from ordermaintain_tbl as omtbl join service_tbl as stbl on stbl.s_id = omtbl.s_id join servicecategory_tbl as sctbl on sctbl.sc_id = stbl.sc_id where sctbl.sc_name = 'Essential' and omtbl.om_status = 0 and omtbl.pp_id = ?",
+      [id],
+      callback
+    );
+  },
 
 };
 
