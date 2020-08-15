@@ -38,9 +38,8 @@ router.get("/:id?", function (req, res, next) {
   }
 });
 
-router.post("/", upload.array("i_name"), function (req, res, next) {
-  image.addImage(req.body, req.files.filename, function (err, rows) {
-    console.log(req.body);
+router.post("/", upload.single("i_name"), function (req, res, next) {
+  image.addImage(req.body, req.file.filename, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
