@@ -55,6 +55,11 @@ var sms=require('./routes/sms_route');
 var historydetail=require('./routes/gethistorydetailbyid_routes');
 var servicenotorder=require('./routes/getServiceNotInOrderMaintaintbl_route');
 
+var employeebyservice=require('./routes/employeebyservice_route');
+var totalEssentialServiceCount=require('./routes/totalEssentialServiceCount_route');
+var appointEmployee=require('./routes/appointEmployee_route');
+
+
 const e = require('express');
 
 
@@ -81,7 +86,10 @@ app.use('/empremainingser',empremainingser);
 //Employee Service
 app.use('/employeeservice',employeeservice);
 app.use('/employeeservicebysidemobile',employeeservicebysidemobile);
+app.use('/employeebyservice',employeebyservice);
+app.use('/appointemployee',appointEmployee);
 
+app.use('/totalEssentialServiceCount',totalEssentialServiceCount);
 
 //Person
 app.use('/person',person);
