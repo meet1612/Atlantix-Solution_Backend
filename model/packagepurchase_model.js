@@ -16,7 +16,7 @@ var packagePurchase={
     },
     addPackagePurchase:function(item,callback){
         var d=new Date();
-        return db.query("insert into packagepurchase_tbl values(?,?,?,?,?,?,?)",[item.pp_id,item.p_mobile,d,item.pp_amount,item.pk_id,item.pp_endDate,item.pp_status],callback);
+        return db.query("insert into packagepurchase_tbl values(?,?,?,?,?,?)",[item.pp_id,item.p_mobile,d,item.pp_amount,item.pk_id,item.pp_endDate],callback);
     },
 
     deletePackagePurchase:function(id,item,callback){
