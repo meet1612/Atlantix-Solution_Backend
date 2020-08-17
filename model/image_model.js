@@ -8,7 +8,7 @@ var image = {
   },
   addImage:function(item,filename,callback){
     var d=new Date();
-    return db.query("insert into item_tbl (i_name,s_id,i_addedAt,i_updatedAt,i_status) values (?,?,?,?,?)",[filename,item.s_id,filename,d,d,'0'],callback);
+    return db.query("insert into image_tbl (i_id,i_name,s_id,i_addedAt,i_updatedAt,i_status) values (?,?,?,?,?,?)",[item.i_id,filename,item.s_id,d,d,'0'],callback);
   },
   updateImage:function(id,item,callback){
     var d=new Date();

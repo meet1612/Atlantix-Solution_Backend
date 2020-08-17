@@ -51,7 +51,16 @@ var package={
     
     getPackageCount:function(callback){
         return db.query("SELECT COUNT(pk_id) as pcount FROM `package_tbl` WHERE pk_status=0",callback);
-    }
+    },
+
+  // get Services of the package by package id and service category ID
+  getServiceByPkgIDANDServcieID: function (item, callback) {
+    return db.query(
+      "select s.* from packageservice_tbl as pks join service_tbl as s on pks.s_id = s.s_id join servicecategory_tbl as sc on sc.sc_id = s.sc_id where pks.pk_id = ? and s.sc_id = ?",
+      [item.pkgID, item.sc_id],
+      callback
+    );
+  },
 };
 
 module.exports=package;
