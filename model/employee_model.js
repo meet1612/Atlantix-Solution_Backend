@@ -60,6 +60,14 @@ var employee={
     );
   },
 
+  availableEmployee: function (mobile_no, callback) {
+    var d = new Date();
+    return db.query(
+      "update employee_tbl set e_updatedAt=? ,e_workingstatus=1 where e_mobile=?",
+      [d, mobile_no],
+      callback
+    );
+  },
 };
 
 module.exports=employee;

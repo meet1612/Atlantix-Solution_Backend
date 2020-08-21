@@ -58,6 +58,7 @@ var servicenotorder = require("./routes/getServiceNotInOrderMaintaintbl_route");
 var employeebyservice = require("./routes/employeebyservice_route");
 var totalEssentialServiceCount = require("./routes/totalEssentialServiceCount_route");
 var appointEmployee = require("./routes/appointEmployee_route");
+var availableEmployee = require("./routes/availableEmployee_route");
 var servicebypkidANDscid = require("./routes/servicebypkidANDscid_route");
 var makePayment = require("./routes/makePayment_route");
 var persondetailsfrompsersontype = require("./routes/persondetailsfrompsersontype_route");
@@ -89,6 +90,7 @@ app.use("/employeeservice", employeeservice);
 app.use("/employeeservicebysidemobile", employeeservicebysidemobile);
 app.use("/employeebyservice", employeebyservice);
 app.use("/appointemployee", appointEmployee);
+app.use("/availableemployee", availableEmployee);
 
 app.use("/totalEssentialServiceCount", totalEssentialServiceCount);
 
