@@ -39,12 +39,12 @@ var service={
         return db.query("SELECT COUNT(s_id) as scount FROM `service_tbl` WHERE s_status=0",callback);
     },
 
-    getServiceStatus:function(id,mobile_no,callback){
-        return db.query("SELECT s.s_name,om_status FROM package_tbl p,service_tbl s,packageservice_tbl ps,packagepurchase_tbl pp,ordermaintain_tbl om,persondetail_tbl pd WHERE p.pk_id=ps.pk_id and s.s_id=ps.s_id and pp.pk_id=p.pk_id AND om.pp_id=pp.pp_id and s.s_id=ps.s_id and om.s_id=s.s_id AND pd.p_mobile=pp.p_mobile and s_status=0 AND pp.pk_id=? AND pp.p_mobile=?",[id,mobile_no],callback);
+    getServiceStatus:function(id,mobile_no,pp_id,callback){
+        return db.query("SELECT s.s_name,om_status FROM package_tbl p,service_tbl s,packageservice_tbl ps,packagepurchase_tbl pp,ordermaintain_tbl om,persondetail_tbl pd WHERE p.pk_id=ps.pk_id and s.s_id=ps.s_id and pp.pk_id=p.pk_id AND om.pp_id=pp.pp_id and s.s_id=ps.s_id and om.s_id=s.s_id AND pd.p_mobile=pp.p_mobile and s_status=0 AND pp.pk_id=? AND pp.p_mobile=? AND pp.pp_id=?",[id,mobile_no,pp_id],callback);
     },
 
-    getServiceNotInOrderMaintaintbl:function(pk_id1,mobile_no,pk_id2,callback){
-        return db.query("SELECT s_name FROM service_tbl WHERE s_id IN (SELECT s_id FROM packageservice_tbl WHERE pk_id = ? AND s_id NOT IN (SELECT s_id FROM ordermaintain_tbl WHERE pp_id = ( SELECT pp_id FROM packagepurchase_tbl WHERE p_mobile = ? AND pk_id = ? )))",[pk_id1,mobile_no,pk_id2],callback);
+    getServiceNotInOrderMaintaintbl:function(pk_id1,mobile_no,pk_id2,pp_id,callback){
+        return db.query("SELECT s_name FROM service_tbl WHERE s_id IN (SELECT s_id FROM packageservice_tbl WHERE pk_id = ? AND s_id NOT IN (SELECT s_id FROM ordermaintain_tbl WHERE pp_id = ( SELECT pp_id FROM packagepurchase_tbl WHERE p_mobile = ? AND pk_id = ? AND pp_id = ?)))",[pk_id1,mobile_no,pk_id2,pp_id],callback);
     }
 };
 
